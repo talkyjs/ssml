@@ -30,6 +30,8 @@
       "pre-commit": "tsdx lint"
     }
   },
+  "homepage": "https://github.com/talkyjs/ssml",
+  "repository": "https://github.com/talkyjs/ssml",
   "prettier": {
     "printWidth": 80,
     "semi": true,
