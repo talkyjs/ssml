@@ -11,6 +11,11 @@ namespace LocalJSX {
   export type SSMLElementWithChildren<P> = SSMLElement<P> & {
       children: SSMLChildren
   }
+  /**
+   * Fork from https://github.com/jubilee-works/ssml-tsx/blob/master/src/jsx.ts
+   * @license MIT
+   * @author Yusuke Fujiki <yusuke@fujikkys.com>
+   */
   export interface IntrinsicElements {
       // https://developer.amazon.com/ja-JP/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html
       "amazon-domain": SSMLElementWithChildren<{
