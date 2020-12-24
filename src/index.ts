@@ -1,7 +1,8 @@
 // eslint-disable-next-line
 // @ts-expect-error
 import React, { ReactElement } from 'react'
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToStaticMarkup } from "react-dom/server"
+export * from './SpeechScript'
 
 namespace LocalJSX {
   export type SSMLElement<P> = P & {

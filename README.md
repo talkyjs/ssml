@@ -146,6 +146,86 @@ export const LaunchRequestHandler = {
 }
 ```
 
+## SpeechScript handler
+
+```tsx
+import React from 'react';
+import { SpeechScriptJSX } from '@talkyjs/ssml';
+
+class LaunchRequestScript extends SpeechScriptJSX {
+    speech() {
+        return (
+            <speak>
+                <p>Hello! It's a nice development. How are you?</p>
+            </speak>
+        )
+    }
+    
+    reprompt() {
+        return (
+            <speak>
+                <p>How are you?</p>
+            </speak>
+        )
+    }
+}
+
+const LaunchRequestHandler = {
+  canHandle: () => true,
+  handle: async (handlerInput) => {
+    const responseBuilder = new LaunchRequestScript(handlerInput).createResponseBuilder()
+    return responseBuilder.getResponse()
+  }
+}
+
+const LaunchRequestHandler2 = {
+  canHandle: () => true,
+  handle: async (handlerInput) => {
+    const speechScript = new LaunchRequestScript(handlerInput)
+    return speechScript.createResponse()
+  }
+}
+
+```
+
+### With custom props
+
+```tsx
+import React from 'react';
+import { SpeechScriptJSX } from '@talkyjs/ssml';
+
+class ScriptWithOptions extends SpeechScriptJSXWithOption<{
+    username: string;
+    launchCount: number;
+}> {
+    speech() {
+        const {
+            username,
+            launchCount,
+        } = this.options
+        return (
+            <speak>
+                <p>Hello {username}-san. You launch it by {launchCount} times. How are you?</p>
+            </speak>
+        )
+    }
+}
+
+const LaunchRequestHandler = {
+  canHandle: () => true,
+  handle: async (handlerInput) => {
+    const responseBuilder = new ScriptWithOptions(handlerInput, {
+        username: 'John',
+        launchCount: 5
+    }).createResponseBuilder()
+    return responseBuilder.getResponse()
+  }
+}
+
+```
+
+
+
 ## Known issue
 
 - [ ] Several tag are almost same as HTML

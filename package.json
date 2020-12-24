@@ -52,6 +52,7 @@
     }
   ],
   "devDependencies": {
+    "@ask-utils/test": "^3.11.0",
     "@size-limit/preset-small-lib": "^4.7.0",
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
@@ -62,5 +63,8 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
     "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "ask-sdk": "^2.10.0"
   }
 }
