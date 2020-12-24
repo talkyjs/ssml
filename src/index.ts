@@ -20,7 +20,7 @@ namespace LocalJSX {
   export interface IntrinsicElements {
       // https://developer.amazon.com/ja-JP/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html
       "amazon-domain": SSMLElementWithChildren<{
-        name: "music" | "news";
+        name: "music" | "news" | "conversational" | "long-form";
       }>;
 
       "amazon-effect": SSMLElementWithChildren<{
