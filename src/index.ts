@@ -53,7 +53,7 @@ namespace LocalJSX {
 
 
       phoneme: SSMLElementWithChildren<{
-        alphabet: "ipa" | "x-sampa";
+        alphabet: "ipa" | "x-sampa" | "ruby" | "x-amazon-pron-kana";
         ph: string;
       }>;
 
