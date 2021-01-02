@@ -1,6 +1,6 @@
 import { HandlerInput, getRequest, ResponseBuilder } from 'ask-sdk';
 import { Request } from 'ask-sdk-model';
-import { renderSSMLToString } from '.';
+import { renderSSMLToString } from './render';
 import { AlexaSpeechComponentProps, ProgressiveResponse } from './interfaces';
 
 export class SpeechScriptJSX<T extends Request = Request>  {
