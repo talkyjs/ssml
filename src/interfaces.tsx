@@ -1,6 +1,17 @@
-import { FC } from 'react'
+// eslint-disable-next-line
+// @ts-expect-error
+import React, { FC, ReactElement } from 'react'
 import { Request, Session, Context, services } from 'ask-sdk-model'
 import { AttributesManager } from 'ask-sdk'
+
+export type SSMLElement<P> = P & {
+  key?: string;
+}
+export type SSMLChildren = string | SSMLElement<any> | Array<SSMLElement<any> | string>
+export type SSMLElementWithChildren<P> = SSMLElement<P> & {
+  children: SSMLChildren
+}
+export type SSMLFC<Props = undefined> = FC<SSMLElementWithChildren<Props>>
 
 export interface ProgressiveResponse {
     ssml: string;

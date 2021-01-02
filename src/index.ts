@@ -1,17 +1,11 @@
 // eslint-disable-next-line
 // @ts-expect-error
 import React, { ReactElement } from 'react'
+import { SSMLElementWithChildren } from './interfaces'
 export * from './SpeechScript'
 export * from './render'
 
 namespace LocalJSX {
-  export type SSMLElement<P> = P & {
-      key?: string;
-  }
-  export type SSMLChildren = string | SSMLElement<any> | Array<SSMLElement<any> | string>
-  export type SSMLElementWithChildren<P> = SSMLElement<P> & {
-      children: SSMLChildren
-  }
   /**
    * Fork from https://github.com/jubilee-works/ssml-tsx/blob/master/src/jsx.ts
    * @license MIT
