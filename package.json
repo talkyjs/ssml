@@ -55,11 +55,11 @@
   "size-limit": [
     {
       "path": "dist/ssml.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "1 MB"
     },
     {
       "path": "dist/ssml.esm.js",
-      "limit": "10 KB"
+      "limit": "1 MB"
     }
   ],
   "lint-staged": {
