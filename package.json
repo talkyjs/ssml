@@ -20,6 +20,9 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
+    "release:ci": "npm run release-it -- --ci",
+    "release-it": "release-it --config release-it.json",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "analyze": "size-limit --why"
   },
   "peerDependencies": {
@@ -27,7 +30,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "homepage": "https://github.com/talkyjs/ssml",
@@ -38,6 +42,9 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "keywords": [
+    "talkyjs", "alexa", "skill", "react"
+  ],
   "name": "@talkyjs/ssml",
   "author": "Hidetaka Okamoto",
   "module": "dist/ssml.esm.js",
@@ -54,8 +61,13 @@
   "devDependencies": {
     "@ask-utils/test": "^3.11.0",
     "@size-limit/preset-small-lib": "^4.7.0",
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
+    "@release-it/conventional-changelog": "^2.0.0",
+    "conventional-changelog-cli": "^2.1.1",
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
+    "release-it": "^14.2.2",
     "husky": "^4.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
