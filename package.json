@@ -23,7 +23,8 @@
     "release:ci": "npm run release-it -- --ci",
     "release-it": "release-it --config release-it.json",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "version": "npm run changelog && git add CHANGELOG.md"
   },
   "peerDependencies": {
     "react": ">=16"
