@@ -70,25 +70,25 @@ describe('SpeechScript', () => {
       confirmationStatus: 'NONE',
     });
     it('should call directive service api', async () => {
-      const mockClient= jest.fn()
+      const mockClient = jest.fn();
       handlerInput.serviceClientFactory = {
         getDirectiveServiceClient: () => ({
-          enqueue: mockClient
-        })
-      } as any
+          enqueue: mockClient,
+        }),
+      } as any;
       const speechScript = new LaunchRequestScript(handlerInput);
-      await speechScript.enqueueProgressiveResponse()
+      await speechScript.enqueueProgressiveResponse();
       expect(mockClient).toHaveBeenCalledWith({
-        "directive": {
-          "speech": "<speak><p>Hello! Hello!!</p></speak>",
-          "type": "VoicePlayer.Speak"
+        directive: {
+          speech: '<speak><p>Hello! Hello!!</p></speak>',
+          type: 'VoicePlayer.Speak',
         },
-        "header": {
-          "requestId": expect.any(String)
-        }
-      })
-    })
-  })
+        header: {
+          requestId: expect.any(String),
+        },
+      });
+    });
+  });
   describe('create', () => {
     const handlerInput = new HandlerInputCreator().createIntentRequest({
       name: 'LaunchRequest',
