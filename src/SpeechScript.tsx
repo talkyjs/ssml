@@ -1,5 +1,5 @@
 import { HandlerInput, getRequest, ResponseBuilder } from 'ask-sdk';
-import { Request } from 'ask-sdk-model';
+import { Request, services } from 'ask-sdk-model';
 import { renderSSMLToString } from './render';
 import { AlexaSpeechComponentProps, ProgressiveResponse } from './interfaces';
 
@@ -8,6 +8,10 @@ export class SpeechScriptJSX<T extends Request = Request> {
    * Props from Request
    */
   protected readonly props: AlexaSpeechComponentProps<T>;
+
+  protected readonly serviceClientFactory:
+    | services.ServiceClientFactory
+    | undefined;
 
   /**
    * ResponseBuilder class
@@ -20,6 +24,7 @@ export class SpeechScriptJSX<T extends Request = Request> {
       ...handlerInput.requestEnvelope,
       request: getRequest<T>(handlerInput.requestEnvelope),
     };
+    this.serviceClientFactory = handlerInput.serviceClientFactory;
     this.responseBuilder = handlerInput.responseBuilder;
   }
 
@@ -74,6 +79,20 @@ export class SpeechScriptJSX<T extends Request = Request> {
       reprompt: reprompt ? renderSSMLToString(reprompt) : undefined,
       progressiveRepsonse: this.createProgressiveResponse(),
     };
+  }
+
+  /**
+   * Execute directiveService API to return the progressive response
+   */
+  public async enqueueProgressiveResponse() {
+    const response = this.createProgressiveResponse();
+    if (!response) return;
+    if (!this.serviceClientFactory) return;
+
+    const directiveServiceClient = this.serviceClientFactory.getDirectiveServiceClient();
+
+    // build the progressive response directive
+    await directiveServiceClient.enqueue(response.directive);
   }
 
   /**
