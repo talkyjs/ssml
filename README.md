@@ -225,6 +225,99 @@ const LaunchRequestHandler = {
 ```
 
 
+## Progressive response (beta)
+
+
+```typescript
+
+class LaunchRequestScript extends SpeechScriptJSX {
+  speech() {
+    return (
+      <speak>
+        <p>Hello! It's a nice development. How are you?</p>
+      </speak>
+    );
+  }
+
+  reprompt() {
+    return (
+      <speak>
+        <p>How are you?</p>
+      </speak>
+    );
+  }
+  progressiveResponse() {
+    return (
+      <speak>
+        <p>Hello! Hello!!</p>
+      </speak>
+    );
+  }
+}
+
+const LaunchRequestHandler = {
+  canHandle: () => true,
+  handle: async (handlerInput) => {
+    const speechScript = new LaunchRequestScript(handlerInput)
+    await speechScript.enqueueProgressiveResponse()
+    
+    // Add a long task.
+
+    return speechScript.createResponse()
+  }
+}
+```
+
+or
+
+```typescript
+
+class LaunchInprogress extends SpeechScriptJSX {
+  progressiveResponse() {
+    return (
+      <speak>
+        <p>Hello! Hello!!</p>
+      </speak>
+    );
+  }
+}
+
+
+class ScriptWithOptions extends SpeechScriptJSXWithOption<{
+    username: string;
+    launchCount: number;
+}> {
+    speech() {
+        const {
+            username,
+            launchCount,
+        } = this.options
+        return (
+            <speak>
+                <p>Hello {username}-san. You launch it by {launchCount} times. How are you?</p>
+            </speak>
+        )
+    }
+}
+
+const LaunchRequestHandler = {
+  canHandle: () => true,
+  handle: async (handlerInput) => {
+    const progressiveRepsonse = new LaunchInprogress(handlerInput)
+    await progressiveRepsonse.enqueueProgressiveResponse()
+
+    // Add a long task.
+
+    const speechScript = new ScriptWithOptions(handlerInput, {
+        username: 'John',
+        launchCount: 5
+    })
+    return speechScript.createResponse()
+  }
+}
+
+```
+
 
 ## Known issue
 
