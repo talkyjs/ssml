@@ -1,3 +1,19 @@
+# [0.5.0](https://github.com/talkyjs/ssml/compare/v0.4.2...v0.5.0) (2021-01-28)
+
+
+### Features
+
+* add progressive response handler method ([563cce2](https://github.com/talkyjs/ssml/commit/563cce21a8b8118db540264f8678948c04ddb6c6))
+
+# [0.5.0](https://github.com/talkyjs/ssml/compare/v0.4.2...v0.5.0) (2021-01-28)
+
+
+### Features
+
+* add progressive response handler method ([563cce2](https://github.com/talkyjs/ssml/commit/563cce21a8b8118db540264f8678948c04ddb6c6))
+
+
+
 ## [0.4.2](https://github.com/talkyjs/ssml/compare/v0.4.1...v0.4.2) (2021-01-28)
 
 ## [0.4.2](https://github.com/talkyjs/ssml/compare/v0.4.1...v0.4.2) (2021-01-28)
