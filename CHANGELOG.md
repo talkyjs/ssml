@@ -1,3 +1,12 @@
+# [0.6.0](https://github.com/talkyjs/ssml/compare/v0.5.0...v0.6.0) (2021-02-04)
+
+
+### Features
+
+* support amazon-domain fun name ([eb3b23b](https://github.com/talkyjs/ssml/commit/eb3b23b2b9ba1cac54b2db9876eaa228dbb7362e))
+
+
+
 # [0.5.0](https://github.com/talkyjs/ssml/compare/v0.4.2...v0.5.0) (2021-01-28)
 
 
