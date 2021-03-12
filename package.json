@@ -74,7 +74,7 @@
     "@release-it/conventional-changelog": "2.0.0",
     "@size-limit/preset-small-lib": "4.9.1",
     "@types/react": "16.14.2",
-    "@types/react-dom": "16.9.10",
+    "@types/react-dom": "17.0.2",
     "conventional-changelog-cli": "2.1.1",
     "husky": "4.3.6",
     "lint-staged": "10.5.3",
