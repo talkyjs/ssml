@@ -69,8 +69,8 @@
   },
   "devDependencies": {
     "@ask-utils/test": "3.11.0",
-    "@commitlint/cli": "11.0.0",
-    "@commitlint/config-conventional": "11.0.0",
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4",
     "@release-it/conventional-changelog": "2.0.1",
     "@size-limit/preset-small-lib": "4.11.0",
     "@types/react": "16.14.8",
