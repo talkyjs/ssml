@@ -71,7 +71,7 @@
     "@ask-utils/test": "3.11.0",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
-    "@release-it/conventional-changelog": "2.0.0",
+    "@release-it/conventional-changelog": "2.0.1",
     "@size-limit/preset-small-lib": "4.11.0",
     "@types/react": "16.14.8",
     "@types/react-dom": "16.9.10",
